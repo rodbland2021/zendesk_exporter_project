@@ -7,6 +7,45 @@ This project connects to the Zendesk API to retrieve tickets (and their comments
 - Fetches additional comments for each ticket, beyond the initial description
 - Saves the final data to a timestamped CSV file
 
+## How to Download This Code
+There are two main ways to download the code from this repository: **`zendesk_exporter_project`** under the GitHub user **`rodbland2021`**.
+
+### 1. Download as a ZIP File (No Git Required)
+1. Open this repository on GitHub:  
+   [https://github.com/rodbland2021/zendesk_exporter_project](https://github.com/rodbland2021/zendesk_exporter_project)
+2. Click the green **"Code"** button near the top-right
+3. Select **"Download ZIP"**
+4. Unzip the downloaded file on your computer, and you will have all the files from this repository
+
+*This method is simplest if you just want a one-time copy without needing Git or version control.*
+
+### 2. Clone with Git
+If you want the full Git history (to pull future updates or contribute back), clone the repository using Git.
+
+#### Option A: Git Command Line
+1. Install Git (if you haven't already)
+2. Open a terminal (Command Prompt, PowerShell, or Git Bash)
+3. Navigate to the folder where you want the repository stored. For example:
+   ```bash
+   cd C:\path\to\your\folder
+   ```
+4. Run:
+   ```bash
+   git clone https://github.com/rodbland2021/zendesk_exporter_project.git
+   ```
+This creates a new folder named `zendesk_exporter_project` containing all the files, commit history, and branches.
+
+#### Option B: GitHub Desktop
+1. Install GitHub Desktop from [desktop.github.com](https://desktop.github.com)
+2. Open GitHub Desktop and sign in to your GitHub account
+3. Go to **File → Clone repository**
+4. Under the **URL** tab, enter:
+   ```
+   https://github.com/rodbland2021/zendesk_exporter_project.git
+   ```
+5. Choose a local path (the folder on your machine where you'd like to store the repository)
+6. Click **"Clone"** to download it
+
 ## Requirements
 - **Python 3.8+**
 - **Dependencies**:
@@ -63,6 +102,8 @@ $env:ZENDESK_API_TOKEN="my-api-token"
 python main.py
 ```
 
+If you use a `.env` file with python-dotenv, remember to add `.env` to your `.gitignore` to prevent committing credentials.
+
 ## Usage
 1. Install dependencies (see above)
 2. Set your environment variables as shown
@@ -77,5 +118,6 @@ This file will contain all ticket details and comments.
 
 ## Troubleshooting
 * **Missing credentials**: If the script reports missing `ZENDESK_SUBDOMAIN`, `ZENDESK_EMAIL`, or `ZENDESK_API_TOKEN`, verify that you've set them correctly (see "Setting Environment Variables" above)
+* **Accidental credential commit**: If you accidentally commit an API token to your repository, immediately revoke the token in Zendesk and remove it from your Git history
 * **Rate limits**: Zendesk imposes rate limits; the script uses small `time.sleep` delays to avoid hitting them too quickly
 * **Further help**: Refer to Zendesk's API documentation for more details on endpoints, parameters, and best practices
