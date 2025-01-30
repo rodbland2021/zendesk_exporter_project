@@ -1,0 +1,6 @@
+# If using a .env file to store environment variables:
+.env
+
+# Typical Python exclusions:
+__pycache__/
+*.pyc
